@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class Client : People
+    public class Client : Person
     {
         public Decimal Income { get; set; }
         public string Document { get; set; }

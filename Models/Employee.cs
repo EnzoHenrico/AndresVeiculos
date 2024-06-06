@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class Employee : People
+    public class Employee : Person
     {
         public Position Position { get; set; }
         public Decimal CommissionValue { get; set; }
