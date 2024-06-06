@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class Servico
+    public class Purchase
     {
         public int Id { get; set; }
-        public string Descricao { get; set; }
+        public Car Car { get; set; }
+        public Decimal Price { get; set; }
+        public DateTime PurchaseDate { get; set; }
     }
 }

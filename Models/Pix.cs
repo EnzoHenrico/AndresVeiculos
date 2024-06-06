@@ -9,7 +9,7 @@ namespace Models
     public class Pix
     {
         public int Id { get; set; }
-        public TipoPix Tipo { get; set; }
+        public PixType Tipo { get; set; }
         public string ChavePix { get; set; }
     }
 }

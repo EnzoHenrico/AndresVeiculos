@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class Cargo
+    public class Service
     {
         public int Id { get; set; }
-        public string Descricao { get; set; }
-
+        public string Description { get; set; }
     }
 }

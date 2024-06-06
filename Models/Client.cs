@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class TipoPix
+    public class Client : People
     {
-        public int Id { get; set; }
-        public string Nome { get; set; }
+        public Decimal Income { get; set; }
+        public string Document { get; set; }
     }
 }

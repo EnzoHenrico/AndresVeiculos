@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class CarroServico
+    public class CarService
     {
         public int Id { get; set; }
-        public Carro Carro { get; set; }
-
-        public Servico Servico { get; set; }
+        public Car Car { get; set; }
+        public Service Service { get; set; }
     }
 }

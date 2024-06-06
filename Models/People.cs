@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public abstract class Pessoa
+    public abstract class People
     {
         public string Documento { get; set; }
         public string Nome { get; set; }
         public DateTime DataNascimento { get; set; }
 
-        public Endereco Endereco { get; set; }
+        public Address Address { get; set; }
 
         public string Telefone   { get; set; }
 

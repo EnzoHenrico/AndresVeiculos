@@ -9,7 +9,7 @@ namespace Models
     public class Boleto
     {
         public int Id { get; set; }
-        public int Numero { get; set; }
-        public DateOnly DataVencimento { get; set; }
+        public int Number { get; set; }
+        public DateOnly DueDate { get; set; }
     }
 }

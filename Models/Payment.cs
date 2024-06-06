@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class Pagamento
+    public class Payment
     {
         public int Id { get; set; }
-        public Cartao Cartao { get; set; }
+        public Card Card { get; set; }
         public Boleto Boleto { get; set; }
         public Pix Pix { get; set; }
-        public DateTime DataPagamento { get; set; }
+        public DateTime PaymentDate { get; set; }
     }
 }

@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class Compra
+    public class PixType
     {
         public int Id { get; set; }
-        public Carro Carro { get; set; }
-        public Decimal Preco { get; set; }
-        public DateTime DataCompra { get; set; }
-
+        public string Name { get; set; }
     }
 }
