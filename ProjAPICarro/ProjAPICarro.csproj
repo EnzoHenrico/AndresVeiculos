@@ -14,11 +14,20 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Models\Models.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Customers\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Customers\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Customers\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Customers\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Customers\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
     </ItemGroup>
 
 </Project>

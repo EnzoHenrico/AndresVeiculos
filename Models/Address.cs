@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,8 +9,9 @@ namespace Models
 {
     public class Address
     {
+        [Key]
         public int Id { get; set; }
-        public  string AddressName { get; set; } // Logradouro
+        public string AddressName { get; set; } // Logradouro
         public string Zip { get; set; }
         public string Neighborhood { get; set; }
         public string AddressType { get; set; } // Rua ou avenida (street or avenue)

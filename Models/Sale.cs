@@ -14,7 +14,7 @@ namespace Models
         public Car Car { get; set; }
         public DateTime SaleDate { get; set; }
         public Decimal SaleValue { get; set; }
-        public Client Client { get; set; }
+        public Customer Customer { get; set; }
         public Employee Employee { get; set; }
         public Payment Payment { get; set; }
     }

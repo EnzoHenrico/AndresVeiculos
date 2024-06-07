@@ -10,15 +10,11 @@ namespace Models
     public abstract class Person
     {
         [Key]
-        public string Documento { get; set; }
-        public string Nome { get; set; }
-        public DateTime DataNascimento { get; set; }
-
+        public string Document { get; set; }
+        public string Name { get; set; }
+        public DateTime BirthDate { get; set; }
         public Address Address { get; set; }
-
-        public string Telefone   { get; set; }
-
+        public string Phone   { get; set; }
         public string Email { get; set; }
-
     }
 }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,5 +15,19 @@ namespace ProjAPICarro.Data
         }
 
         public DbSet<Models.Car> Car { get; set; } = default!;
+        public DbSet<Models.CarService> CarService { get; set; } = default!;
+        public DbSet<Models.Service> Service { get; set; } = default!;
+        public DbSet<Models.Purchase> Purchase { get; set; } = default!;
+        public DbSet<Models.Address> Address { get; set; } = default!;
+        public DbSet<Models.Customer> Customer { get; set; } = default!;
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        
+            // Configura a chave primária na entidade raiz Person
+            modelBuilder.Entity<Person>()
+                .HasKey(p => p.Document);
+        }
     }
 }
