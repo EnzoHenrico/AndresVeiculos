@@ -9,7 +9,6 @@ namespace Models
 {
     public class Address
     {
-        [Key]
         public int Id { get; set; }
         public string AddressName { get; set; } // Logradouro
         public string Zip { get; set; }

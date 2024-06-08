@@ -12,47 +12,47 @@ namespace ProjAPICarro.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomersController : ControllerBase
+    public class EmployeesController : ControllerBase
     {
         private readonly ProjAPICarroContext _context;
 
-        public CustomersController(ProjAPICarroContext context)
+        public EmployeesController(ProjAPICarroContext context)
         {
             _context = context;
         }
 
-        // GET: api/Customers
+        // GET: api/Emploies
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomer()
+        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployee()
         {
-            return await _context.Customer.ToListAsync();
+            return await _context.Employee.ToListAsync();
         }
 
-        // GET: api/Customers/5
+        // GET: api/Emploies/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Customer>> GetCustomer(string id)
+        public async Task<ActionResult<Employee>> GetEmployee(string id)
         {
-            var customer = await _context.Customer.FindAsync(id);
+            var employee = await _context.Employee.FindAsync(id);
 
-            if (customer == null)
+            if (employee == null)
             {
                 return NotFound();
             }
 
-            return customer;
+            return employee;
         }
 
-        // PUT: api/Customers/5
+        // PUT: api/Emploies/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCustomer(string id, Customer customer)
+        public async Task<IActionResult> PutEmployee(string id, Employee employee)
         {
-            if (id != customer.Document)
+            if (id != employee.Document)
             {
                 return BadRequest();
             }
 
-            _context.Entry(customer).State = EntityState.Modified;
+            _context.Entry(employee).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace ProjAPICarro.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CustomerExists(id))
+                if (!EmployeeExists(id))
                 {
                     return NotFound();
                 }
@@ -73,19 +73,19 @@ namespace ProjAPICarro.Controllers
             return NoContent();
         }
 
-        // POST: api/Customers
+        // POST: api/Emploies
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
+        public async Task<ActionResult<Employee>> PostEmployee(Employee employee)
         {
-            _context.Customer.Add(customer);
+            _context.Employee.Add(employee);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (CustomerExists(customer.Document))
+                if (EmployeeExists(employee.Document))
                 {
                     return Conflict();
                 }
@@ -95,28 +95,28 @@ namespace ProjAPICarro.Controllers
                 }
             }
 
-            return CreatedAtAction("GetCustomer", new { id = customer.Document }, customer);
+            return CreatedAtAction("GetEmployee", new { id = employee.Document }, employee);
         }
 
-        // DELETE: api/Customers/5
+        // DELETE: api/Emploies/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCustomer(string id)
+        public async Task<IActionResult> DeleteEmployee(string id)
         {
-            var customer = await _context.Customer.FindAsync(id);
-            if (customer == null)
+            var employee = await _context.Employee.FindAsync(id);
+            if (employee == null)
             {
                 return NotFound();
             }
 
-            _context.Customer.Remove(customer);
+            _context.Employee.Remove(employee);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool CustomerExists(string id)
+        private bool EmployeeExists(string id)
         {
-            return _context.Customer.Any(e => e.Document == id);
+            return _context.Employee.Any(e => e.Document == id);
         }
     }
 }

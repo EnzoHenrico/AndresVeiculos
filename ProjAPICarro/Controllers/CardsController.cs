@@ -12,47 +12,47 @@ namespace ProjAPICarro.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomersController : ControllerBase
+    public class CardsController : ControllerBase
     {
         private readonly ProjAPICarroContext _context;
 
-        public CustomersController(ProjAPICarroContext context)
+        public CardsController(ProjAPICarroContext context)
         {
             _context = context;
         }
 
-        // GET: api/Customers
+        // GET: api/Cards
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomer()
+        public async Task<ActionResult<IEnumerable<Card>>> GetCard()
         {
-            return await _context.Customer.ToListAsync();
+            return await _context.Card.ToListAsync();
         }
 
-        // GET: api/Customers/5
+        // GET: api/Cards/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Customer>> GetCustomer(string id)
+        public async Task<ActionResult<Card>> GetCard(string id)
         {
-            var customer = await _context.Customer.FindAsync(id);
+            var card = await _context.Card.FindAsync(id);
 
-            if (customer == null)
+            if (card == null)
             {
                 return NotFound();
             }
 
-            return customer;
+            return card;
         }
 
-        // PUT: api/Customers/5
+        // PUT: api/Cards/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCustomer(string id, Customer customer)
+        public async Task<IActionResult> PutCard(string id, Card card)
         {
-            if (id != customer.Document)
+            if (id != card.CardNumber)
             {
                 return BadRequest();
             }
 
-            _context.Entry(customer).State = EntityState.Modified;
+            _context.Entry(card).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace ProjAPICarro.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CustomerExists(id))
+                if (!CardExists(id))
                 {
                     return NotFound();
                 }
@@ -73,19 +73,19 @@ namespace ProjAPICarro.Controllers
             return NoContent();
         }
 
-        // POST: api/Customers
+        // POST: api/Cards
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
+        public async Task<ActionResult<Card>> PostCard(Card card)
         {
-            _context.Customer.Add(customer);
+            _context.Card.Add(card);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (CustomerExists(customer.Document))
+                if (CardExists(card.CardNumber))
                 {
                     return Conflict();
                 }
@@ -95,28 +95,28 @@ namespace ProjAPICarro.Controllers
                 }
             }
 
-            return CreatedAtAction("GetCustomer", new { id = customer.Document }, customer);
+            return CreatedAtAction("GetCard", new { id = card.CardNumber }, card);
         }
 
-        // DELETE: api/Customers/5
+        // DELETE: api/Cards/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCustomer(string id)
+        public async Task<IActionResult> DeleteCard(string id)
         {
-            var customer = await _context.Customer.FindAsync(id);
-            if (customer == null)
+            var card = await _context.Card.FindAsync(id);
+            if (card == null)
             {
                 return NotFound();
             }
 
-            _context.Customer.Remove(customer);
+            _context.Card.Remove(card);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool CustomerExists(string id)
+        private bool CardExists(string id)
         {
-            return _context.Customer.Any(e => e.Document == id);
+            return _context.Card.Any(e => e.CardNumber == id);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,21 +13,27 @@ namespace ProjAPICarro.Data
             : base(options)
         {
         }
-
-        public DbSet<Models.Car> Car { get; set; } = default!;
-        public DbSet<Models.CarService> CarService { get; set; } = default!;
-        public DbSet<Models.Service> Service { get; set; } = default!;
-        public DbSet<Models.Purchase> Purchase { get; set; } = default!;
-        public DbSet<Models.Address> Address { get; set; } = default!;
-        public DbSet<Models.Customer> Customer { get; set; } = default!;
-
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-        
-            // Configura a chave primária na entidade raiz Person
-            modelBuilder.Entity<Person>()
-                .HasKey(p => p.Document);
+            modelBuilder.Entity<Customer>().ToTable("Customer");
+            modelBuilder.Entity<Employee>().ToTable("Employee");
         }
+
+        public DbSet<Models.Car> Car { get; set; } = default!;
+        public DbSet<Models.CarService> CarService { get; set; }
+        public DbSet<Models.Employee> Employee { get; set; }
+        public DbSet<Models.Service> Service { get; set; }
+        public DbSet<Models.Purchase> Purchase { get; set; }
+        public DbSet<Models.Address> Address { get; set; }
+        public DbSet<Models.Customer> Customer { get; set; }
+        public DbSet<Models.Boleto> Boleto { get; set; }
+        public DbSet<Models.Card> Card { get; set; }
+        public DbSet<Models.Sale> Sale { get; set; }
+        public DbSet<Models.Position> Position { get; set; }
+        public DbSet<Models.Payment> Payment { get; set; }
+        public DbSet<Models.Pix> Pix { get; set; }
+        public DbSet<Models.PixType> PixType { get; set; }
     }
 }

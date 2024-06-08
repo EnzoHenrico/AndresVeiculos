@@ -9,7 +9,6 @@ namespace Models
 {
     public class Purchase
     {
-        [Key]
         public int Id { get; set; }
         public Car Car { get; set; }
         public Decimal Price { get; set; }

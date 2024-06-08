@@ -9,7 +9,6 @@ namespace Models
 {
     public class Sale
     {
-        [Key]
         public int Id { get; set; }
         public Car Car { get; set; }
         public DateTime SaleDate { get; set; }
